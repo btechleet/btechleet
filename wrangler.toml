@@ -1,0 +1,15 @@
+# BTechLeet - Cloudflare Pages Configuration
+# Reference: https://developers.cloudflare.com/pages/
+
+# The name of your Pages project
+name = "btechleetcode"
+
+# The directory containing the static assets to be deployed
+pages_build_output_dir = "."
+
+# The compatibility date determines the runtime API version
+compatibility_date = "2024-05-02"
+
+# [vars]
+# Place your environment variables here if needed:
+# API_URL = "https://api.btechleet.com"
