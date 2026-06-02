@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGPA to Percentage Converter & Semester Calculator | BTechLeet.com</title>
+  <meta name="description"
+    content="Convert CGPA to percentage using standard AICTE, VTU, KTU, Mumbai, and other university schemes. Multi-semester SGPA cumulative calculator built for diploma students.">
+  <meta name="keywords" content="CGPA to percentage, SGPA calculator, CGPA converter, VTU CGPA conversion, KTU CGPA to percentage">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d76ff">
+  <link rel="canonical" href="https://btechleet.com/tools/cgpa-calculator.html">
+  <link rel="icon" type="image/webp" href="../favicon.webp">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CGPA to Percentage Converter & Semester Calculator">
+  <meta property="og:description"
+    content="An active client-side calculator for converting CGPA to percentage or computing cumulative semester scores.">
+  <meta property="og:url" content="https://btechleet.com/tools/cgpa-calculator.html">
+  <meta property="og:site_name" content="BTechLeet">
+  <meta property="og:image" content="https://btechleet.com/logo.webp">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="background-orbs" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <div class="top-strip">
+    2026 lateral entry playbook | 28 states + 8 UTs | AI guidance, cutoffs, PYQs, and college discovery
+  </div>
+
+  <div class="site-shell">
+    <header>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html" class="brand">
+          <img src="../favicon.webp" alt="BTechLeet icon" class="brand-mark">
+          <div class="brand-copy">
+            <div class="brand-name">BTechLeet</div>
+            <div class="brand-tag">btechleet.com | Guiding lateral entry students across India</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../states/index.html" class="nav-link">Exams</a>
+          <a href="cgpa-calculator.html" class="nav-link active">Tools</a>
+          <a href="../blog/index.html" class="nav-link">Blog</a>
+          <a href="../about.html" class="nav-link">About</a>
+        </div>
+
+        <a href="../contact.html" class="nav-cta">Get in Touch</a>
+      </nav>
+    </header>
+
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>CGPA Calculator</span>
+      </nav>
+
+      <section class="page-header">
+        <div class="page-eyebrow">
+          <span class="page-eyebrow-dot"></span>
+          Academic Calculators
+        </div>
+        <h1 class="page-title">University <span>CGPA Tool Stack</span></h1>
+        <p class="page-subtitle">
+          Convert your CGPA to percentage under multiple university formulas, convert percentage back to CGPA, or compute your cumulative semester grades.
+        </p>
+      </section>
+
+      <div class="two-col">
+        <div class="main-content">
+          
+          <!-- Tool 1: CGPA to Percentage -->
+          <section class="tool-section" id="cgpaToPctSection">
+            <h2>1. CGPA to Percentage Converter</h2>
+            <p class="tool-desc">
+              Select your specific university scoring standard to normalize your score instantly.
+            </p>
+
+            <form onsubmit="convertCgpa(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cgpaVal" class="form-label">Enter your CGPA</label>
+                  <input type="number" id="cgpaVal" class="form-input" min="0" max="10" step="0.01" placeholder="e.g. 8.45" required>
+                </div>
+                <div class="form-group">
+                  <label for="univScheme" class="form-label">University / Board Formula</label>
+                  <select id="univScheme" class="form-select" required>
+                    <option value="aicte">(CGPA - 0.75) * 10 [AICTE standard]</option>
+                    <option value="vtu">CGPA * 10 [VTU/SCTE&VT standard]</option>
+                    <option value="ktu">(CGPA * 10) - 3.75 [KTU standard]</option>
+                    <option value="mumbai">7.25 * CGPA + 11 [Mumbai standard]</option>
+                    <option value="cbse">CGPA * 9.5 [CBSE standard]</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary" style="width: 100%; border: none; margin-bottom: 24px;">Convert to Percentage</button>
+            </form>
+
+            <div class="result-box" id="cgpaToPctResult" style="display: none;">
+              <div class="result-value" id="cgpaPctVal">00.0%</div>
+              <div class="result-label" id="cgpaFormulaLabel">Calculated Percentage</div>
+            </div>
+          </section>
+
+          <!-- Tool 2: Cumulative Semester SGPA Calculator -->
+          <section class="tool-section" id="semesterCgpaSection">
+            <h2>2. Semester-wise CGPA Calculator</h2>
+            <p class="tool-desc">
+              Add your individual semesters' SGPA and credits weight to compute your cumulative score.
+            </p>
+
+            <div id="semesterRows">
+              <div class="form-row sem-row" style="margin-bottom: 12px;">
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label">Semester 1 SGPA</label>
+                  <input type="number" class="form-input sem-sgpa" min="0" max="10" step="0.01" placeholder="e.g. 8.20" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label">Credits Weight</label>
+                  <input type="number" class="form-input sem-credits" min="1" max="40" step="0.5" placeholder="e.g. 22" required>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin: 20px 0;">
+              <button type="button" class="btn-secondary btn-sm" onclick="addSemesterRow()">+ Add Semester Row</button>
+              <button type="button" class="btn-primary btn-sm" onclick="calculateSemesterCgpa()" style="margin-left: auto;">Compute Cumulative CGPA</button>
+            </div>
+
+            <div class="result-box" id="semCgpaResult" style="display: none;">
+              <div class="result-value" id="semCgpaVal">0.00</div>
+              <div class="result-label">Cumulative CGPA</div>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Calculators List</h3>
+            <a href="cgpa-calculator.html" class="sidebar-link" style="color: var(--brand-orange-deep);">CGPA Converter</a>
+            <a href="percentage-calculator.html" class="sidebar-link">Marks Percentage Tool</a>
+            <a href="leet-rank-predictor.html" class="sidebar-link">LEET Rank Predictor</a>
+            <a href="cutoff-analyzer.html" class="sidebar-link">Cutoff Analyzer</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Why CGPA Matters</h3>
+            <p style="font-size: 0.9rem; color: var(--subtle); line-height: 1.6;">
+              State entrance counseling boards (like Punjab IKGPTU) normalize score parameters strictly using the AICTE constant multiplication standards. Ensure you apply the matching formula in your application form.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <div class="footer-brand">BTechLeet</div>
+        <p class="footer-note">
+          btechleet.com is a focused home for B.Tech lateral entry students across India, built to bring clarity to the search for exams, colleges, and counseling guidance.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="../about.html" class="footer-link">About Us</a>
+        <a href="../contact.html" class="footer-link">Contact</a>
+        <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+        <a href="../disclaimer.html" class="footer-link">Disclaimer</a>
+        <a href="../sitemap.html" class="footer-link">Sitemap</a>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 BTechLeet. All rights reserved.</div>
+        <div>Built for diploma students across India. Support: <a href="mailto:btechleet@gmail.com">btechleet@gmail.com</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" style="display: none;">
+    <p>We use cookies to ensure you get the best experience on BTechLeet.com. By continuing, you agree to our use of cookies and our <a href="../privacy-policy.html">Privacy Policy</a>.</p>
+    <button class="cookie-accept" onclick="acceptCookies()">Accept Cookies</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookieBanner').style.display = 'flex';
+      }
+    });
+
+    // CGPA to Percentage Conversion
+    function convertCgpa(event) {
+      event.preventDefault();
+      const cgpa = parseFloat(document.getElementById('cgpaVal').value);
+      const scheme = document.getElementById('univScheme').value;
+      let pct = 0;
+      let formulaText = "";
+
+      if (scheme === 'aicte') {
+        pct = (cgpa - 0.75) * 10;
+        formulaText = `Formula: (CGPA - 0.75) * 10`;
+      } else if (scheme === 'vtu') {
+        pct = cgpa * 10;
+        formulaText = `Formula: CGPA * 10`;
+      } else if (scheme === 'ktu') {
+        pct = (cgpa * 10) - 3.75;
+        formulaText = `Formula: (CGPA * 10) - 3.75`;
+      } else if (scheme === 'mumbai') {
+        pct = 7.25 * cgpa + 11;
+        formulaText = `Formula: 7.25 * CGPA + 11`;
+      } else if (scheme === 'cbse') {
+        pct = cgpa * 9.5;
+        formulaText = `Formula: CGPA * 9.5`;
+      }
+
+      pct = Math.max(0, Math.min(100, pct)); // bound limits
+
+      document.getElementById('cgpaPctVal').textContent = `${pct.toFixed(2)}%`;
+      document.getElementById('cgpaFormulaLabel').textContent = formulaText;
+      document.getElementById('cgpaToPctResult').style.display = 'block';
+    }
+
+    // Dynamic Semester Rows Addition
+    let semCount = 1;
+    function addSemesterRow() {
+      semCount++;
+      const semesterRows = document.getElementById('semesterRows');
+      const row = document.createElement('div');
+      row.className = 'form-row sem-row';
+      row.style.marginBottom = '12px';
+      row.innerHTML = `
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label">Semester ${semCount} SGPA</label>
+          <input type="number" class="form-input sem-sgpa" min="0" max="10" step="0.01" placeholder="e.g. 8.50" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label">Credits Weight</label>
+          <input type="number" class="form-input sem-credits" min="1" max="40" step="0.5" placeholder="e.g. 20" required>
+        </div>
+      `;
+      semesterRows.appendChild(row);
+    }
+
+    // SGPA Multi-Semester Cumulative CGPA computation
+    function calculateSemesterCgpa() {
+      const sgpaInputs = document.querySelectorAll('.sem-sgpa');
+      const creditInputs = document.querySelectorAll('.sem-credits');
+      let totalQualityPoints = 0;
+      let totalCredits = 0;
+      let isValid = true;
+
+      for (let i = 0; i < sgpaInputs.length; i++) {
+        const sgpa = parseFloat(sgpaInputs[i].value);
+        const credits = parseFloat(creditInputs[i].value);
+
+        if (isNaN(sgpa) || isNaN(credits) || sgpa < 0 || sgpa > 10 || credits <= 0) {
+          isValid = false;
+          break;
+        }
+
+        totalQualityPoints += (sgpa * credits);
+        totalCredits += credits;
+      }
+
+      const resultBox = document.getElementById('semCgpaResult');
+      const resultVal = document.getElementById('semCgpaVal');
+
+      if (!isValid || totalCredits === 0) {
+        alert("Please enter valid positive values for SGPAs (between 0-10) and Credits weights.");
+        resultBox.style.display = 'none';
+        return;
+      }
+
+      const cgpa = totalQualityPoints / totalCredits;
+      resultVal.textContent = cgpa.toFixed(2);
+      resultBox.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

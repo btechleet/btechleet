@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marks to Percentage Calculator & Semester Aggregators | BTechLeet.com</title>
+  <meta name="description"
+    content="Convert obtained marks to percentage, aggregate multiple semesters' score marks, and calculate percentage values instantly with standard client-side calculators.">
+  <meta name="keywords" content="marks to percentage, aggregate percentage calculator, percentage score, diploma marks calculator">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d76ff">
+  <link rel="canonical" href="https://btechleet.com/tools/percentage-calculator.html">
+  <link rel="icon" type="image/webp" href="../favicon.webp">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marks to Percentage Calculator & Semester Aggregators">
+  <meta property="og:description"
+    content="Free client-side marks converter for polytechnic candidates compiling their entrance profiles.">
+  <meta property="og:url" content="https://btechleet.com/tools/percentage-calculator.html">
+  <meta property="og:site_name" content="BTechLeet">
+  <meta property="og:image" content="https://btechleet.com/logo.webp">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="background-orbs" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <div class="top-strip">
+    2026 lateral entry playbook | 28 states + 8 UTs | AI guidance, cutoffs, PYQs, and college discovery
+  </div>
+
+  <div class="site-shell">
+    <header>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html" class="brand">
+          <img src="../favicon.webp" alt="BTechLeet icon" class="brand-mark">
+          <div class="brand-copy">
+            <div class="brand-name">BTechLeet</div>
+            <div class="brand-tag">btechleet.com | Guiding lateral entry students across India</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../states/index.html" class="nav-link">Exams</a>
+          <a href="cgpa-calculator.html" class="nav-link active">Tools</a>
+          <a href="../blog/index.html" class="nav-link">Blog</a>
+          <a href="../about.html" class="nav-link">About</a>
+        </div>
+
+        <a href="../contact.html" class="nav-cta">Get in Touch</a>
+      </nav>
+    </header>
+
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Percentage Calculator</span>
+      </nav>
+
+      <section class="page-header">
+        <div class="page-eyebrow">
+          <span class="page-eyebrow-dot"></span>
+          Academic Calculators
+        </div>
+        <h1 class="page-title">Marks & Percentage <span>Calculator Hub</span></h1>
+        <p class="page-subtitle">
+          Calculate your overall percentage from obtained marks, or compute the cumulative aggregate score across multiple polytechnic semesters.
+        </p>
+      </section>
+
+      <div class="two-col">
+        <div class="main-content">
+          
+          <!-- Tool 1: Marks to Percentage -->
+          <section class="tool-section" id="marksToPctSection">
+            <h2>1. Simple Marks to Percentage</h2>
+            <p class="tool-desc">
+              Convert your obtained marks relative to maximum marks instantly.
+            </p>
+
+            <form onsubmit="calculateMarksPct(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="marksObt" class="form-label">Obtained Marks</label>
+                  <input type="number" id="marksObt" class="form-input" min="0" step="0.5" placeholder="e.g. 785" required>
+                </div>
+                <div class="form-group">
+                  <label for="marksMax" class="form-label">Maximum / Out of Marks</label>
+                  <input type="number" id="marksMax" class="form-input" min="1" step="0.5" placeholder="e.g. 1000" required>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary" style="width: 100%; border: none; margin-bottom: 24px;">Calculate Percentage</button>
+            </form>
+
+            <div class="result-box" id="marksPctResult" style="display: none;">
+              <div class="result-value" id="marksPctVal">00.0%</div>
+              <div class="result-label">Obtained Percentage</div>
+            </div>
+          </section>
+
+          <!-- Tool 2: Aggregate Semester Marks Calculator -->
+          <section class="tool-section" id="semesterAggregateSection">
+            <h2>2. Semester-wise Marks Aggregate</h2>
+            <p class="tool-desc">
+              Add individual semester total marks to calculate your cumulative polytechnic aggregate score.
+            </p>
+
+            <div id="semMarksRows">
+              <div class="form-row sem-marks-row" style="margin-bottom: 12px;">
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label">Semester 1 Obtained</label>
+                  <input type="number" class="form-input sem-obt" min="0" step="0.5" placeholder="e.g. 520" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label">Semester 1 Max Marks</label>
+                  <input type="number" class="form-input sem-max" min="1" step="0.5" placeholder="e.g. 700" required>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin: 20px 0;">
+              <button type="button" class="btn-secondary btn-sm" onclick="addSemMarksRow()">+ Add Semester Row</button>
+              <button type="button" class="btn-primary btn-sm" onclick="calculateSemesterAggregate()" style="margin-left: auto;">Compute Cumulative Aggregate</button>
+            </div>
+
+            <div class="result-box" id="semAggregateResult" style="display: none;">
+              <div class="result-value" id="semAggregateVal">00.0%</div>
+              <div class="result-label">Cumulative Aggregate Percentage</div>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Calculators List</h3>
+            <a href="cgpa-calculator.html" class="sidebar-link">CGPA Converter</a>
+            <a href="percentage-calculator.html" class="sidebar-link" style="color: var(--brand-orange-deep);">Marks Percentage Tool</a>
+            <a href="leet-rank-predictor.html" class="sidebar-link">LEET Rank Predictor</a>
+            <a href="cutoff-analyzer.html" class="sidebar-link">Cutoff Analyzer</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>KEA Eligibility Rules</h3>
+            <p style="font-size: 0.9rem; color: var(--subtle); line-height: 1.6;">
+              Most state entrance councils (like Karnataka KEA and Kerala DTE) evaluate candidate eligibility based on the cumulative aggregate score percentage of all diploma semesters combined. A minimum of 45% (40% for SC/ST/BC) is standard.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <div class="footer-brand">BTechLeet</div>
+        <p class="footer-note">
+          btechleet.com is a focused home for B.Tech lateral entry students across India, built to bring clarity to the search for exams, colleges, and counseling guidance.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="../about.html" class="footer-link">About Us</a>
+        <a href="../contact.html" class="footer-link">Contact</a>
+        <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+        <a href="../disclaimer.html" class="footer-link">Disclaimer</a>
+        <a href="../sitemap.html" class="footer-link">Sitemap</a>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 BTechLeet. All rights reserved.</div>
+        <div>Built for diploma students across India. Support: <a href="mailto:btechleet@gmail.com">btechleet@gmail.com</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" style="display: none;">
+    <p>We use cookies to ensure you get the best experience on BTechLeet.com. By continuing, you agree to our use of cookies and our <a href="../privacy-policy.html">Privacy Policy</a>.</p>
+    <button class="cookie-accept" onclick="acceptCookies()">Accept Cookies</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookieBanner').style.display = 'flex';
+      }
+    });
+
+    // Simple Marks to Percentage
+    function calculateMarksPct(event) {
+      event.preventDefault();
+      const obtained = parseFloat(document.getElementById('marksObt').value);
+      const maximum = parseFloat(document.getElementById('marksMax').value);
+
+      const resultBox = document.getElementById('marksPctResult');
+      const resultVal = document.getElementById('marksPctVal');
+
+      if (obtained > maximum) {
+        alert("Obtained marks cannot exceed maximum marks.");
+        resultBox.style.display = 'none';
+        return;
+      }
+
+      const pct = (obtained / maximum) * 100;
+      resultVal.textContent = `${pct.toFixed(2)}%`;
+      resultBox.style.display = 'block';
+    }
+
+    // Dynamic Semester Rows Addition
+    let semMarksCount = 1;
+    function addSemMarksRow() {
+      semMarksCount++;
+      const semMarksRows = document.getElementById('semMarksRows');
+      const row = document.createElement('div');
+      row.className = 'form-row sem-marks-row';
+      row.style.marginBottom = '12px';
+      row.innerHTML = `
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label">Semester ${semMarksCount} Obtained</label>
+          <input type="number" class="form-input sem-obt" min="0" step="0.5" placeholder="e.g. 550" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label">Semester ${semMarksCount} Max Marks</label>
+          <input type="number" class="form-input sem-max" min="1" step="0.5" placeholder="e.g. 700" required>
+        </div>
+      `;
+      semMarksRows.appendChild(row);
+    }
+
+    // Semester-wise Cumulative Aggregate Percentage Computation
+    function calculateSemesterAggregate() {
+      const obtInputs = document.querySelectorAll('.sem-obt');
+      const maxInputs = document.querySelectorAll('.sem-max');
+      let totalObtained = 0;
+      let totalMaximum = 0;
+      let isValid = true;
+
+      for (let i = 0; i < obtInputs.length; i++) {
+        const obtained = parseFloat(obtInputs[i].value);
+        const maximum = parseFloat(maxInputs[i].value);
+
+        if (isNaN(obtained) || isNaN(maximum) || obtained < 0 || maximum <= 0 || obtained > maximum) {
+          isValid = false;
+          break;
+        }
+
+        totalObtained += obtained;
+        totalMaximum += maximum;
+      }
+
+      const resultBox = document.getElementById('semAggregateResult');
+      const resultVal = document.getElementById('semAggregateVal');
+
+      if (!isValid || totalMaximum === 0) {
+        alert("Please enter valid positive numbers, and ensure obtained marks do not exceed maximum marks for any semester.");
+        resultBox.style.display = 'none';
+        return;
+      }
+
+      const aggregatePct = (totalObtained / totalMaximum) * 100;
+      resultVal.textContent = `${aggregatePct.toFixed(2)}%`;
+      resultBox.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

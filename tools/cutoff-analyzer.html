@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.Tech Lateral Entry Cutoff Intelligence Analyzer | BTechLeet.com</title>
+  <meta name="description"
+    content="Analyze historical engineering college cutoff ranks for B.Tech lateral entry admissions. Filter and compare cutoffs across Jadavpur, RVCE, OUTR, and CET Trivandrum.">
+  <meta name="keywords" content="LEET cutoffs, college cutoffs, RVCE cutoff, Jadavpur JELET cutoff, OJEE cutoff ranks">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d76ff">
+  <link rel="canonical" href="https://btechleet.com/tools/cutoff-analyzer.html">
+  <link rel="icon" type="image/webp" href="../favicon.webp">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="B.Tech Lateral Entry Cutoff Intelligence Analyzer">
+  <meta property="og:description"
+    content="Interactive database for exploring state engineering college lateral entry cutoff statistics.">
+  <meta property="og:url" content="https://btechleet.com/tools/cutoff-analyzer.html">
+  <meta property="og:site_name" content="BTechLeet">
+  <meta property="og:image" content="https://btechleet.com/logo.webp">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="background-orbs" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <div class="top-strip">
+    2026 lateral entry playbook | 28 states + 8 UTs | AI guidance, cutoffs, PYQs, and college discovery
+  </div>
+
+  <div class="site-shell">
+    <header>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html" class="brand">
+          <img src="../favicon.webp" alt="BTechLeet icon" class="brand-mark">
+          <div class="brand-copy">
+            <div class="brand-name">BTechLeet</div>
+            <div class="brand-tag">btechleet.com | Guiding lateral entry students across India</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../states/index.html" class="nav-link">Exams</a>
+          <a href="cgpa-calculator.html" class="nav-link active">Tools</a>
+          <a href="../blog/index.html" class="nav-link">Blog</a>
+          <a href="../about.html" class="nav-link">About</a>
+        </div>
+
+        <a href="../contact.html" class="nav-cta">Get in Touch</a>
+      </nav>
+    </header>
+
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Cutoff Analyzer</span>
+      </nav>
+
+      <section class="page-header">
+        <div class="page-eyebrow">
+          <span class="page-eyebrow-dot"></span>
+          Cutoff Intelligence
+        </div>
+        <h1 class="page-title">College <span>Cutoff Analyzer</span></h1>
+        <p class="page-subtitle">
+          Filter and compare historical opening and closing cutoff ranks for leading engineering institutions across India's lateral entry counseling cycles.
+        </p>
+      </section>
+
+      <div class="two-col">
+        <div class="main-content">
+          
+          <!-- Filters Card -->
+          <section class="tool-section" style="padding: 24px; margin-bottom: 24px;">
+            <h2>Filter College Database</h2>
+            <div class="form-row" style="margin-top: 14px;">
+              <div class="form-group">
+                <label for="stateFilter" class="form-label">Select State Region</label>
+                <select id="stateFilter" class="form-select" onchange="applyFilters()">
+                  <option value="all">All States</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Bihar">Bihar</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="branchFilter" class="form-label">Select Branch Category</label>
+                <select id="branchFilter" class="form-select" onchange="applyFilters()">
+                  <option value="all">All Branches</option>
+                  <option value="CSE">Computer Science (CSE)</option>
+                  <option value="IT">Information Tech (IT)</option>
+                  <option value="ECE">Electronics (ECE)</option>
+                  <option value="EE">Electrical (EE)</option>
+                  <option value="ME">Mechanical (ME)</option>
+                  <option value="CE">Civil Engineering (CE)</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- Cutoffs Data Table -->
+          <section class="tool-section" style="padding: 28px;">
+            <h2>Admissions Cutoffs Directory</h2>
+            <p class="tool-desc">Closing rank benchmarks based on previous general merit list cycles.</p>
+
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>College Institute</th>
+                    <th>State</th>
+                    <th>Branch</th>
+                    <th>Opening Rank</th>
+                    <th>Closing Rank</th>
+                  </tr>
+                </thead>
+                <tbody id="cutoffTableBody">
+                  <!-- Row 1 -->
+                  <tr data-state="Delhi" data-branch="CSE">
+                    <td><strong>USICT Delhi</strong></td>
+                    <td>Delhi</td>
+                    <td><span class="tag tag-blue">CSE</span></td>
+                    <td>#12</td>
+                    <td>#85</td>
+                  </tr>
+                  <!-- Row 2 -->
+                  <tr data-state="West Bengal" data-branch="CSE">
+                    <td><strong>Jadavpur University</strong></td>
+                    <td>West Bengal</td>
+                    <td><span class="tag tag-blue">CSE</span></td>
+                    <td>#1</td>
+                    <td>#42</td>
+                  </tr>
+                  <!-- Row 3 -->
+                  <tr data-state="Karnataka" data-branch="CSE">
+                    <td><strong>RVCE Bangalore</strong></td>
+                    <td>Karnataka</td>
+                    <td><span class="tag tag-blue">CSE</span></td>
+                    <td>#5</td>
+                    <td>#98</td>
+                  </tr>
+                  <!-- Row 4 -->
+                  <tr data-state="Karnataka" data-branch="ECE">
+                    <td><strong>RVCE Bangalore</strong></td>
+                    <td>Karnataka</td>
+                    <td><span class="tag tag-orange">ECE</span></td>
+                    <td>#24</td>
+                    <td>#180</td>
+                  </tr>
+                  <!-- Row 5 -->
+                  <tr data-state="Odisha" data-branch="CSE">
+                    <td><strong>OUTR Bhubaneswar</strong></td>
+                    <td>Odisha</td>
+                    <td><span class="tag tag-blue">CSE</span></td>
+                    <td>#8</td>
+                    <td>#150</td>
+                  </tr>
+                  <!-- Row 6 -->
+                  <tr data-state="Kerala" data-branch="CSE">
+                    <td><strong>CET Trivandrum</strong></td>
+                    <td>Kerala</td>
+                    <td><span class="tag tag-blue">CSE</span></td>
+                    <td>#3</td>
+                    <td>#78</td>
+                  </tr>
+                  <!-- Row 7 -->
+                  <tr data-state="Punjab" data-branch="CSE">
+                    <td><strong>GNDEC Ludhiana</strong></td>
+                    <td>Punjab</td>
+                    <td><span class="tag tag-blue">CSE</span></td>
+                    <td>#15</td>
+                    <td>#240</td>
+                  </tr>
+                  <!-- Row 8 -->
+                  <tr data-state="Bihar" data-branch="ME">
+                    <td><strong>MIT Muzaffarpur</strong></td>
+                    <td>Bihar</td>
+                    <td><span class="tag tag-green">ME</span></td>
+                    <td>#48</td>
+                    <td>#380</td>
+                  </tr>
+                  <!-- Row 9 -->
+                  <tr data-state="West Bengal" data-branch="EE">
+                    <td><strong>Jadavpur University</strong></td>
+                    <td>West Bengal</td>
+                    <td><span class="tag tag-green">EE</span></td>
+                    <td>#20</td>
+                    <td>#110</td>
+                  </tr>
+                  <!-- Row 10 -->
+                  <tr data-state="Odisha" data-branch="EE">
+                    <td><strong>VSSUT Burla</strong></td>
+                    <td>Odisha</td>
+                    <td><span class="tag tag-green">EE</span></td>
+                    <td>#35</td>
+                    <td>#310</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Table empty state -->
+            <div id="tableNoResults" class="coverage-empty" style="display: none; margin-top: 14px; text-align: center;">
+              No college admissions data matches your filter combination. Try adjusting filters!
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Calculators List</h3>
+            <a href="cgpa-calculator.html" class="sidebar-link">CGPA Converter</a>
+            <a href="percentage-calculator.html" class="sidebar-link">Marks Percentage Tool</a>
+            <a href="leet-rank-predictor.html" class="sidebar-link">LEET Rank Predictor</a>
+            <a href="cutoff-analyzer.html" class="sidebar-link" style="color: var(--brand-orange-deep);">Cutoff Analyzer</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Counselor Guidance</h3>
+            <p style="font-size: 0.9rem; color: var(--subtle); line-height: 1.6;">
+              Opening and closing cutoffs represent state-category counseling benchmarks. Ranks can fluctuate based on category weight matrices, seat pools, and localized vacancy trends.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <div class="footer-brand">BTechLeet</div>
+        <p class="footer-note">
+          btechleet.com is a focused home for B.Tech lateral entry students across India, built to bring clarity to the search for exams, colleges, and counseling guidance.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="../about.html" class="footer-link">About Us</a>
+        <a href="../contact.html" class="footer-link">Contact</a>
+        <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+        <a href="../disclaimer.html" class="footer-link">Disclaimer</a>
+        <a href="../sitemap.html" class="footer-link">Sitemap</a>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 BTechLeet. All rights reserved.</div>
+        <div>Built for diploma students across India. Support: <a href="mailto:btechleet@gmail.com">btechleet@gmail.com</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" style="display: none;">
+    <p>We use cookies to ensure you get the best experience on BTechLeet.com. By continuing, you agree to our use of cookies and our <a href="../privacy-policy.html">Privacy Policy</a>.</p>
+    <button class="cookie-accept" onclick="acceptCookies()">Accept Cookies</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookieBanner').style.display = 'flex';
+      }
+    });
+
+    function applyFilters() {
+      const state = document.getElementById('stateFilter').value;
+      const branch = document.getElementById('branchFilter').value;
+      const rows = document.querySelectorAll('#cutoffTableBody tr');
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const rowState = row.getAttribute('data-state');
+        const rowBranch = row.getAttribute('data-branch');
+
+        const stateMatch = (state === 'all' || rowState === state);
+        const branchMatch = (branch === 'all' || rowBranch === branch);
+
+        if (stateMatch && branchMatch) {
+          row.style.display = 'table-row';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      const noResults = document.getElementById('tableNoResults');
+      if (visibleCount === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+
+</html>

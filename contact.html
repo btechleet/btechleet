@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | BTechLeet.com</title>
+  <meta name="description"
+    content="Have questions about B.Tech lateral entry counseling or preparation? Contact the BTechLeet team today for resources, support, and feedback.">
+  <meta name="keywords" content="contact BTechLeet, LEET counseling support, lateral entry help, diploma engineering questions">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d76ff">
+  <link rel="canonical" href="https://btechleet.com/contact.html">
+  <link rel="icon" type="image/webp" href="favicon.webp">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Us | BTechLeet.com">
+  <meta property="og:description"
+    content="Get in touch with BTechLeet for B.Tech lateral entry queries, counseling assistance, or partnership discussions.">
+  <meta property="og:url" content="https://btechleet.com/contact.html">
+  <meta property="og:site_name" content="BTechLeet">
+  <meta property="og:image" content="https://btechleet.com/logo.webp">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="background-orbs" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <div class="top-strip">
+    2026 lateral entry playbook | 28 states + 8 UTs | AI guidance, cutoffs, PYQs, and college discovery
+  </div>
+
+  <div class="site-shell">
+    <header>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" class="brand">
+          <img src="favicon.webp" alt="BTechLeet icon" class="brand-mark">
+          <div class="brand-copy">
+            <div class="brand-name">BTechLeet</div>
+            <div class="brand-tag">btechleet.com | Guiding lateral entry students across India</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="states/index.html" class="nav-link">Exams</a>
+          <a href="tools/cgpa-calculator.html" class="nav-link">Tools</a>
+          <a href="blog/index.html" class="nav-link">Blog</a>
+          <a href="about.html" class="nav-link">About</a>
+        </div>
+
+        <a href="contact.html" class="nav-cta active">Get in Touch</a>
+      </nav>
+    </header>
+
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Contact Us</span>
+      </nav>
+
+      <section class="page-header">
+        <div class="page-eyebrow">
+          <span class="page-eyebrow-dot"></span>
+          Connect with Us
+        </div>
+        <h1 class="page-title">We'd Love to Hear <span>From You</span></h1>
+        <p class="page-subtitle">
+          Have a question about counseling, found a bug in a calculator, or want to contribute study resources? Fill out the contact form below or reach out via email.
+        </p>
+      </section>
+
+      <div class="two-col">
+        <div class="main-content">
+          <section class="tool-section">
+            <h2>Send Us a Message</h2>
+            <p class="tool-desc">
+              Please fill in your details and message. Our counseling response team typically gets back within 24 to 48 hours.
+            </p>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="e.g. rahul@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label for="state" class="form-label">Your State / UT</label>
+                  <select id="state" name="state" class="form-select" required>
+                    <option value="" disabled selected>Select your region</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Other">Other State/UT</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="e.g. DCET Prep Query / Partnership Inquiry" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea id="message" name="message" class="form-input" style="min-height: 140px; padding: 14px; font-family: inherit; resize: vertical;" placeholder="Explain your query, feedback, or request in detail..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="min-height: 48px; width: 100%; border: none; cursor: pointer; font-size: 1rem;">Send Message</button>
+            </form>
+
+            <div id="formFeedback" class="info-box success" style="display: none; margin-top: 20px;">
+              <p><strong>Success!</strong> Your message has been prepared. Since this is a static site, you can send it directly to our mailbox at <a href="mailto:btechleet@gmail.com">btechleet@gmail.com</a>. We have opened your email client for convenience!</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Direct Contact</h3>
+            <p style="font-size: 0.94rem; color: var(--subtle); margin-bottom: 16px; line-height: 1.6;">
+              For immediate counseling queries, sponsorships, data updates, or legal reviews, contact us directly via email.
+            </p>
+            <div style="font-weight: 700; color: var(--ink); margin-bottom: 4px; font-size: 0.95rem;">General & Legal Email:</div>
+            <a href="mailto:btechleet@gmail.com" class="sidebar-link" style="padding: 4px 0; font-size: 1rem; border-bottom: none;">btechleet@gmail.com</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Frequently Asked</h3>
+            <p style="font-size: 0.9rem; color: var(--subtle); line-height: 1.6; margin-bottom: 12px;">
+              Looking for mock tests, cutoffs, or state rank estimators? You might find your answers immediately on our specialized tools pages.
+            </p>
+            <a href="tools/cgpa-calculator.html" class="btn-secondary btn-sm" style="width: 100%; text-decoration: none;">View Tools</a>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <div class="footer-brand">BTechLeet</div>
+        <p class="footer-note">
+          btechleet.com is a focused home for B.Tech lateral entry students across India, built to bring clarity to the search for exams, colleges, and counseling guidance.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="about.html" class="footer-link">About Us</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+        <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+        <a href="sitemap.html" class="footer-link">Sitemap</a>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 BTechLeet. All rights reserved.</div>
+        <div>Built for diploma students across India. Support: <a href="mailto:btechleet@gmail.com">btechleet@gmail.com</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" style="display: none;">
+    <p>We use cookies to ensure you get the best experience on BTechLeet.com. By continuing, you agree to our use of cookies and our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+    <button class="cookie-accept" onclick="acceptCookies()">Accept Cookies</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookieBanner').style.display = 'flex';
+      }
+    });
+
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const state = document.getElementById('state').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      const feedback = document.getElementById('formFeedback');
+      feedback.style.display = 'block';
+
+      // Pre-fill email client link
+      const emailBody = `Name: ${name}%0AEmail: ${email}%0AState: ${state}%0A%0AFeedback / Query:%0A${message}`;
+      const mailtoUrl = `mailto:btechleet@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 800);
+    }
+  </script>
+</body>
+
+</html>

@@ -1370,6 +1370,128 @@
       border-color: rgba(13, 118, 255, 0.16);
     }
 
+    .footer-bottom {
+      width: 100%;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .footer-bottom a {
+      color: var(--brand-blue);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---- Data Table Premium Styling ---- */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-soft);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .data-table-wrap:hover {
+      border-color: rgba(13, 118, 255, 0.16);
+      box-shadow: 0 12px 36px rgba(16, 32, 64, 0.05);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.94rem;
+      text-align: left;
+    }
+
+    .data-table th {
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(13, 118, 255, 0.05), rgba(255, 122, 0, 0.03));
+      color: var(--ink);
+      font-weight: 700;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 2px solid rgba(13, 118, 255, 0.1);
+    }
+
+    .data-table td {
+      padding: 16px 20px;
+      color: var(--subtle);
+      border-bottom: 1px solid var(--line);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr:hover td {
+      background: rgba(13, 118, 255, 0.02);
+      color: var(--ink);
+    }
+
+    .data-table tr td strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ---- Tags Premium Styling ---- */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-1px);
+    }
+
+    .tag-blue {
+      background: rgba(13, 118, 255, 0.06);
+      color: var(--brand-blue);
+      border: 1px solid rgba(13, 118, 255, 0.12);
+      box-shadow: 0 2px 8px rgba(13, 118, 255, 0.04);
+    }
+
+    .tag-orange {
+      background: rgba(255, 122, 0, 0.06);
+      color: var(--brand-orange-deep);
+      border: 1px solid rgba(255, 122, 0, 0.12);
+      box-shadow: 0 2px 8px rgba(255, 122, 0, 0.04);
+    }
+
+    .tag-green {
+      background: rgba(15, 159, 111, 0.06);
+      color: var(--success);
+      border: 1px solid rgba(15, 159, 111, 0.12);
+      box-shadow: 0 2px 8px rgba(15, 159, 111, 0.04);
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -1401,6 +1523,14 @@
 
       .spotlight-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static !important;
       }
 
       .nav-links {
@@ -1467,7 +1597,8 @@
       .coverage-panel,
       .coverage-map,
       .contact-card,
-      .feature-card {
+      .feature-card,
+      .tool-section {
         padding: 22px;
       }
 
@@ -1515,6 +1646,22 @@
 
       .spotlight-grid {
         grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .data-table-wrap {
+        margin-left: -22px;
+        margin-right: -22px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+
+      .sidebar-card {
+        padding: 20px;
       }
 
       .footer {
@@ -1881,12 +2028,14 @@
       </a>
 
       <div class="nav-links">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#states" class="nav-link">Coverage</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="states/index.html" class="nav-link">Exams</a>
+        <a href="tools/cgpa-calculator.html" class="nav-link">Tools</a>
+        <a href="blog/index.html" class="nav-link">Blog</a>
+        <a href="about.html" class="nav-link">About</a>
       </div>
 
-      <a href="mailto:btechleet@gmail.com" class="nav-cta">Email the team</a>
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
     </nav>
 
     <main>
@@ -2162,7 +2311,170 @@
       </div>
     </section>
 
+      <!-- INTERACTIVE ADMISSIONS PLANNER & COLLEGE DASHBOARD -->
+      <section class="section" id="dashboard" style="margin-bottom: 80px;">
+        <div class="section-kicker">Interactive student planner</div>
+        <h2 class="section-title">My Admission Planner & State Classifier 📊</h2>
+        <p class="section-intro">
+          Classify admission modes dynamically across all states, build your target college checklist, save your plans locally, and export them as structured profiles.
+        </p>
 
+        <div class="two-col">
+          <!-- Left Col: Admissions Mode Finder and College Shortlister -->
+          <div class="main-content">
+            <!-- Part A: Dynamic Admissions Finder -->
+            <div class="tool-section" style="margin-bottom: 24px;">
+              <h3>State Admissions Classification</h3>
+              <p class="tool-desc" style="margin-bottom: 18px;">
+                Select your academic level to classify states requiring entrance exams vs merit-based counseling.
+              </p>
+
+              <div class="form-group">
+                <label for="admissionLevel" class="form-label">Select Academic Goal</label>
+                <select id="admissionLevel" class="form-select" onchange="toggleAdmissionsTable()" style="min-height: 48px; border-radius: 16px; border: 1px solid rgba(16,32,64,0.1); padding: 0 16px; font-weight: 600; width: 100%;">
+                  <option value="btech">B.Tech Lateral Entry (After Engineering Diploma)</option>
+                  <option value="diploma">Diploma Polytechnic Admission (After 10th Standard)</option>
+                </select>
+              </div>
+
+              <!-- B.Tech Lateral Entry Table -->
+              <div class="data-table-wrap" id="btechTableWrap">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>State / UT</th>
+                      <th>Admission Mode</th>
+                      <th>Official Entrance Exam Name / Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Kerala</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>BLET / Kerala LET (Lateral Entry Test)</td></tr>
+                    <tr><td><strong>Haryana</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>HSTES LEET Merit (Based on Diploma %)</td></tr>
+                    <tr><td><strong>Delhi</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>IPU CET / Delhi DTU-NSUT Entrance Exam</td></tr>
+                    <tr><td><strong>Karnataka</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>KEA DCET (Diploma Common Entrance Test)</td></tr>
+                    <tr><td><strong>Telangana</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>TG ECET (Telangana State Engineering Common Entrance Test)</td></tr>
+                    <tr><td><strong>Andhra Pradesh</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>AP ECET (Andhra Pradesh Engineering Common Entrance Test)</td></tr>
+                    <tr><td><strong>Odisha</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>OJEE LE (Odisha Joint Entrance Examination LE)</td></tr>
+                    <tr><td><strong>West Bengal</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>JELET (Joint Entrance Examination for Lateral Entry)</td></tr>
+                    <tr><td><strong>Bihar</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>BCECE(LE) (Bihar Lateral Entry Test)</td></tr>
+                    <tr><td><strong>Gujarat</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>DDCET (Diploma to Degree Common Entrance Test)</td></tr>
+                    <tr><td><strong>Punjab</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>PTU LEET Merit (Based on Diploma %)</td></tr>
+                    <tr><td><strong>Chandigarh</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>PULEET (Panjab University LEET)</td></tr>
+                    <tr><td><strong>Maharashtra</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>DSE CAP Counseling (Based on Diploma %)</td></tr>
+                    <tr><td><strong>Rajasthan / MP / TN</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>State Centralized Merit (Based on Diploma %)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Diploma After 10th Table (Initially Hidden) -->
+              <div class="data-table-wrap" id="diplomaTableWrap" style="display: none;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>State / UT</th>
+                      <th>Admission Mode</th>
+                      <th>Official Entrance Exam Name / Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Uttar Pradesh</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>JEECUP (UPJEE Polytechnic)</td></tr>
+                    <tr><td><strong>Bihar</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>DCECE (Polytechnic Entrance)</td></tr>
+                    <tr><td><strong>West Bengal</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>JEXPO Entrance Exam</td></tr>
+                    <tr><td><strong>Andhra Pradesh</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>AP POLYCET</td></tr>
+                    <tr><td><strong>Telangana</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>TS / TG POLYCET</td></tr>
+                    <tr><td><strong>Assam / Arunachal</strong></td><td><span class="tag tag-green">Exam Required</span></td><td>PAT / DHTE APJEE</td></tr>
+                    <tr><td><strong>Haryana</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>10th Class Marks + Centralized HSTES Counseling</td></tr>
+                    <tr><td><strong>Rajasthan / Punjab</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>10th Class Marks + State Merit Counseling</td></tr>
+                    <tr><td><strong>Maharashtra / Gujarat</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>10th Class Marks + Centralized CAP Counseling</td></tr>
+                    <tr><td><strong>Karnataka / Tamil Nadu</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>10th Class Marks + State Directorate Counseling</td></tr>
+                    <tr><td><strong>Kerala / Goa / Chandigarh</strong></td><td><span class="tag tag-orange">Merit-Based</span></td><td>10th Class Marks + Central Merit Lists</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Part B: Dynamic College Shortlister & Planner -->
+            <div class="tool-section" style="margin-bottom: 24px;">
+              <h3>My College Shortlist & Checklist</h3>
+              <p class="tool-desc" style="margin-bottom: 18px;">
+                Create, customize, and check off your target B.Tech colleges. Save your targets locally or export your plan!
+              </p>
+
+              <div id="plannerInputs">
+                <div class="form-row">
+                  <div class="form-group" style="margin-bottom: 14px;">
+                    <label for="inputCollege" class="form-label" style="font-weight: 700; display: block; margin-bottom: 6px;">Target College Name</label>
+                    <input type="text" id="inputCollege" class="form-input" placeholder="e.g. YMCA Faridabad / DTU Delhi" style="min-height: 48px; border-radius: 16px; border: 1px solid rgba(16,32,64,0.1); padding: 0 16px; width: 100%;">
+                  </div>
+                  <div class="form-group" style="margin-bottom: 14px;">
+                    <label for="inputBranch" class="form-label" style="font-weight: 700; display: block; margin-bottom: 6px;">Target Branch / Course</label>
+                    <input type="text" id="inputBranch" class="form-input" placeholder="e.g. Computer Science (CSE)" style="min-height: 48px; border-radius: 16px; border: 1px solid rgba(16,32,64,0.1); padding: 0 16px; width: 100%;">
+                  </div>
+                </div>
+                <div class="form-row" style="margin-top: 10px;">
+                  <div class="form-group" style="margin-bottom: 14px;">
+                    <label for="inputTargetRank" class="form-label" style="font-weight: 700; display: block; margin-bottom: 6px;">Target Ranks Range / Note</label>
+                    <input type="text" id="inputTargetRank" class="form-input" placeholder="e.g. Under Rank #150 / Domicile Seat" style="min-height: 48px; border-radius: 16px; border: 1px solid rgba(16,32,64,0.1); padding: 0 16px; width: 100%;">
+                  </div>
+                  <div class="form-group" style="display: flex; align-items: flex-end; margin-bottom: 14px;">
+                    <button type="button" class="btn-primary" onclick="saveToShortlist()" style="width: 100%; min-height: 48px; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; font-weight: 800; font-size: 0.96rem;">
+                      📥 Save Target College
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shortlist Container -->
+              <div id="shortlistContainer" style="margin-top: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                  <span class="tag tag-blue" style="font-size: 0.82rem; font-weight: 700;">My Shortlisted Colleges:</span>
+                  <button type="button" class="btn-secondary btn-sm" onclick="exportShortlistPlan()" id="exportPlanBtn" style="min-height: 36px; padding: 6px 14px; font-size: 0.8rem; display: none; border-radius: 999px; font-weight: 700; border: 1px solid rgba(16,32,64,0.1);">
+                    📤 Export My Study Plan (.txt)
+                  </button>
+                </div>
+
+                <div id="shortlistGrid" style="display: grid; gap: 14px;">
+                  <!-- Dynamically populated checklist cards -->
+                  <div class="coverage-empty" id="shortlistEmptyState" style="padding: 16px 18px; border-radius: 20px; border: 1px dashed rgba(16,32,64,0.14); background: rgba(16, 32, 64, 0.04); color: var(--subtle); font-size: 0.94rem;">
+                    Your shortlist is currently empty. Add target colleges above to build your custom admissions tracker!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Col: Sourced Top College Recommendations & DSA Focus -->
+          <aside class="sidebar" style="position: sticky; top: 104px;">
+            <div class="sidebar-card" style="padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: rgba(255,255,255,0.9); box-shadow: var(--shadow-soft); margin-bottom: 20px;">
+              <h3 style="font-family: 'Syne', sans-serif; font-size: 1.08rem; font-weight: 800; margin-bottom: 14px;">National Elite Targets</h3>
+              <p style="font-size: 0.88rem; color: var(--subtle); line-height: 1.6; margin-bottom: 12px;">
+                Dream national engineering institutions highly coveted by B.Tech lateral entry candidates:
+              </p>
+              <ul class="feature-list" style="margin: 0; padding-left: 12px; font-size: 0.88rem; display: grid; gap: 8px;">
+                <li style="display: flex; gap: 10px; color: var(--subtle);"><strong>IIIT Hyderabad</strong> — S-tier computer science LEEE admission.</li>
+                <li style="display: flex; gap: 10px; color: var(--subtle);"><strong>DTU & NSUT Delhi</strong> — Elite central Delhi tech departments.</li>
+                <li style="display: flex; gap: 10px; color: var(--subtle);"><strong>UIET Panjab University</strong> — Top Chandigarh main campus.</li>
+                <li style="display: flex; gap: 10px; color: var(--subtle);"><strong>SLIET Longowal</strong> — Centrally Funded Technical Institute (CFTI).</li>
+                <li style="display: flex; gap: 10px; color: var(--subtle);"><strong>RVCE Bengaluru</strong> — Premier software placements.</li>
+              </ul>
+            </div>
+
+            <div class="sidebar-card" style="padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: rgba(255,255,255,0.9); box-shadow: var(--shadow-soft); margin-bottom: 20px;">
+              <h3 style="font-family: 'Syne', sans-serif; font-size: 1.08rem; font-weight: 800; margin-bottom: 14px;">High-Priority CSE Path</h3>
+              <div class="info-box success" style="margin: 0; padding: 16px; border-radius: 12px; border-left: 4px solid var(--success); background: rgba(15,159,111,0.04);">
+                <p style="font-size: 0.86rem; line-height: 1.6; color: var(--ink); margin-bottom: 8px;">
+                  <strong>Reality Check:</strong> Lateral entry degrees hold identical value to 4-year tracks. To secure premium product placements, focus heavily on:
+                </p>
+                <ul style="margin: 8px 0 0 16px; padding: 0; font-size: 0.82rem; color: var(--subtle); line-height: 1.5;">
+                  <li>Data Structures & Algorithms (DSA)</li>
+                  <li>MERN Stack Web Development</li>
+                  <li>Portfolio Project Work</li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
 
       <section class="section" id="contact">
         <div class="contact-card">
@@ -2191,9 +2503,19 @@
       </div>
 
       <div class="footer-links">
-        <a href="#features" class="footer-link">Features</a>
-        <a href="#states" class="footer-link">Coverage</a>
-        <a href="mailto:btechleet@gmail.com" class="footer-link">btechleet@gmail.com</a>
+        <a href="states/index.html" class="footer-link">State Exams</a>
+        <a href="blog/index.html" class="footer-link">Blog</a>
+        <a href="tools/cgpa-calculator.html" class="footer-link">Tools</a>
+        <a href="about.html" class="footer-link">About Us</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+        <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+        <a href="sitemap.html" class="footer-link">Sitemap</a>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 BTechLeet. All rights reserved.</div>
+        <div>Built for diploma students across India. Support: <a href="mailto:btechleet@gmail.com">btechleet@gmail.com</a></div>
       </div>
     </footer>
   </div>
@@ -2231,6 +2553,149 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ---- Admissions Table Toggle ----
+    function toggleAdmissionsTable() {
+      const level = document.getElementById('admissionLevel').value;
+      const btechWrap = document.getElementById('btechTableWrap');
+      const diplomaWrap = document.getElementById('diplomaTableWrap');
+      if (level === 'btech') {
+        btechWrap.style.display = 'block';
+        diplomaWrap.style.display = 'none';
+      } else {
+        btechWrap.style.display = 'none';
+        diplomaWrap.style.display = 'block';
+      }
+    }
+
+    // ---- States Section Tab Switcher ----
+    function showTab(tabId, btn) {
+      document.getElementById('states28').style.display = 'none';
+      document.getElementById('uts8').style.display = 'none';
+      document.getElementById(tabId).style.display = 'grid';
+      document.querySelectorAll('.states-section .tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // ---- College Shortlist System (localStorage) ----
+    function getShortlist() {
+      try {
+        return JSON.parse(localStorage.getItem('btechleet_shortlist') || '[]');
+      } catch(e) { return []; }
+    }
+
+    function persistShortlist(list) {
+      localStorage.setItem('btechleet_shortlist', JSON.stringify(list));
+    }
+
+    function renderShortlist() {
+      const list = getShortlist();
+      const grid = document.getElementById('shortlistGrid');
+      const empty = document.getElementById('shortlistEmptyState');
+      const exportBtn = document.getElementById('exportPlanBtn');
+
+      // Clear existing cards (keep empty state)
+      grid.querySelectorAll('.shortlist-card').forEach(c => c.remove());
+
+      if (list.length === 0) {
+        empty.style.display = 'block';
+        exportBtn.style.display = 'none';
+        return;
+      }
+
+      empty.style.display = 'none';
+      exportBtn.style.display = 'inline-flex';
+
+      list.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'shortlist-card';
+        card.style.cssText = 'padding: 18px 20px; border-radius: 20px; border: 1px solid rgba(16,32,64,0.08); background: rgba(255,255,255,0.88); box-shadow: 0 8px 24px rgba(16,32,64,0.06); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; transition: transform 0.2s ease, box-shadow 0.2s ease;';
+
+        const checked = item.done ? 'checked' : '';
+        card.innerHTML = `
+          <input type="checkbox" ${checked} onchange="toggleShortlistItem(${idx})" style="width: 20px; height: 20px; accent-color: var(--brand-blue); cursor: pointer; flex-shrink: 0;">
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-weight: 800; color: var(--ink); font-size: 0.96rem; ${item.done ? 'text-decoration: line-through; opacity: 0.55;' : ''}">${escapeHtml(item.college)}</div>
+            <div style="font-size: 0.84rem; color: var(--subtle);">${escapeHtml(item.branch)} · ${escapeHtml(item.rank)}</div>
+          </div>
+          <button onclick="removeShortlistItem(${idx})" style="background: none; border: none; cursor: pointer; color: var(--muted); font-size: 1.2rem; padding: 4px 8px; border-radius: 8px; transition: color 0.2s;" title="Remove">&times;</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function saveToShortlist() {
+      const college = document.getElementById('inputCollege').value.trim();
+      const branch = document.getElementById('inputBranch').value.trim();
+      const rank = document.getElementById('inputTargetRank').value.trim();
+
+      if (!college) {
+        alert('Please enter a target college name.');
+        return;
+      }
+
+      const list = getShortlist();
+      list.push({ college, branch: branch || 'Not specified', rank: rank || 'No target set', done: false });
+      persistShortlist(list);
+      renderShortlist();
+
+      // Clear inputs
+      document.getElementById('inputCollege').value = '';
+      document.getElementById('inputBranch').value = '';
+      document.getElementById('inputTargetRank').value = '';
+    }
+
+    function toggleShortlistItem(idx) {
+      const list = getShortlist();
+      if (list[idx]) {
+        list[idx].done = !list[idx].done;
+        persistShortlist(list);
+        renderShortlist();
+      }
+    }
+
+    function removeShortlistItem(idx) {
+      const list = getShortlist();
+      list.splice(idx, 1);
+      persistShortlist(list);
+      renderShortlist();
+    }
+
+    function exportShortlistPlan() {
+      const list = getShortlist();
+      if (list.length === 0) {
+        alert('Your shortlist is empty. Add some colleges first!');
+        return;
+      }
+
+      let output = '=== BTechLeet.com — My College Shortlist Plan ===\n';
+      output += 'Generated: ' + new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) + '\n\n';
+
+      list.forEach((item, i) => {
+        const status = item.done ? '[✅ DONE]' : '[⬜ PENDING]';
+        output += `${i + 1}. ${status} ${item.college}\n`;
+        output += `   Branch: ${item.branch}\n`;
+        output += `   Target: ${item.rank}\n\n`;
+      });
+
+      output += '---\nPowered by btechleet.com | All-India B.Tech Lateral Entry Platform\n';
+
+      const blob = new Blob([output], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'BTechLeet_My_Shortlist_Plan.txt';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }
+
+    // Load shortlist on page load
+    renderShortlist();
 
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('[role="tabpanel"]');
